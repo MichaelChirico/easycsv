@@ -46,7 +46,7 @@ fread_folder(directory = NULL,
 
 }
   \item{sep}{
-  The separator between columns. Defaults to the first character in the set [,\verb{\t} |;:] that exists on line autostart outside quoted ("") regions, and separates the rows above autostart into a consistent number of fields, too.
+  The separator between columns. Defaults to the first character in the set [,\verb{\t} |;:] that exists on line 1 outside quoted ("") regions.
   }
   \item{nrows}{
   The number of rows to read, by default -1 means all. Unlike read.table, it doesn't help speed to set this to the number of rows in the file (or an estimate), since the number of rows is automatically determined and is already fast. Only set nrows if you require the first 10 rows, for example. 'nrows=0' is a special case that just returns the column names and types; e.g., a dry run for a large file or to quickly check format consistency of a set of files before starting to read any.
@@ -64,7 +64,7 @@ fread_folder(directory = NULL,
   Be chatty and report timings?
   }
   \item{skip}{
-  If 0 (default) use the procedure described below starting on line autostart to find the first data row. skip>0 means ignore autostart and take line skip+1 as the first data row (or column names according to header="auto"|TRUE|FALSE as usual). skip="string" searches for "string" in the file (e.g. a substring of the column names row) and starts on that line (inspired by read.xls in package gdata).
+  If 0 (default) use the procedure described below starting on line 1 to find the first data row. skip>0 means take line skip+1 as the first data row (or column names according to header="auto"|TRUE|FALSE as usual). skip="string" searches for "string" in the file (e.g. a substring of the column names row) and starts on that line (inspired by read.xls in package gdata).
   }
   \item{drop}{
   Vector of column names or numbers to drop, keep the rest.
